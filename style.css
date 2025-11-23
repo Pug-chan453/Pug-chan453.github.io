@@ -1,0 +1,36 @@
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0e0e16;
+  color: #e6e6e6;
+}
+header {
+  background: #1a1a2e;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #3a3a5e;
+}
+nav a {
+  color: #a8a8ff;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a:hover {
+  text-shadow: 0 0 10px #8b8bff;
+}
+.hero {
+  padding: 40px;
+  background: linear-gradient(#1a1a2e, #0e0e16);
+  text-align: center;
+  border-bottom: 1px solid #333;
+}
+footer {
+  text-align: center;
+  padding: 10px;
+  background: #1a1a2e;
+  margin-top: 40px;
+  border-top: 2px solid #3a3a5e;
+}
+</style>
