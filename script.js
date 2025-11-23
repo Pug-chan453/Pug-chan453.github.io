@@ -21,7 +21,7 @@ cards.forEach((card, i) => {
 (() => {
   // CONFIG
   const SECRET_PASS = "https://www.youtube.com/watch?v=KivZieyf3b0";
-  const EGG_IMAGE = "https://media.tenor.com/VlJt2ymlkS8AAAAC/technoblade-technoblade-never-dies.gif";
+  const EGG_IMAGE = "technoblade.png";
   const KONAMI = ["arrowup","arrowup","arrowdown","arrowdown","arrowleft","arrowright","arrowleft","arrowright","b","a"];
 
   // estado
