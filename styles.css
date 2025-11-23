@@ -91,3 +91,182 @@ footer {
   border-top: 2px solid var(--accent);
   color: var(--text-dim);
 }
+/* secret.css - estilos para popup secreto e easter egg (gamer/glitch) */
+:root{
+  --neon: #ff66cc;
+  --neon-2: #b34bff;
+  --glitch-red: #ff2b2b;
+  --glass: rgba(255,255,255,0.03);
+}
+
+/* overlay do painel secreto */
+#secret-overlay{
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(2,2,4,0.72);
+  z-index: 9999;
+  padding: 20px;
+}
+
+/* painel central */
+#secret-panel{
+  width: min(720px, 98%);
+  background: linear-gradient(180deg, rgba(20,18,28,0.98), rgba(12,11,18,0.98));
+  border: 1px solid rgba(180,80,255,0.12);
+  box-shadow: 0 8px 40px rgba(120,50,255,0.08);
+  padding: 26px;
+  border-radius: 12px;
+  text-align: center;
+  color: #eee;
+  font-family: "Segoe UI", Arial, sans-serif;
+  transform-origin: center;
+}
+
+/* título neon */
+#secret-panel h2{
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: var(--neon-2);
+  text-shadow: 0 0 10px rgba(179,75,255,0.9);
+}
+
+/* input + botão */
+#secret-input {
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  align-items:center;
+  margin-top:12px;
+}
+#secret-input input[type="text"]{
+  width: 68%;
+  padding: 10px 12px;
+  background: var(--glass);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #fff;
+  outline: none;
+  border-radius: 8px;
+}
+#secret-input button {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(90deg,var(--neon),var(--neon-2));
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(123,63,204,0.18);
+}
+
+/* dica / mensagem */
+#secret-hint { margin-top: 10px; color: #bfb6dd; font-size: 0.88rem; }
+
+/* takeover do easter egg (fullscreen) */
+#egg-takeover{
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 30% 20%, rgba(40,10,85,0.9), rgba(10,6,14,0.98));
+  overflow: hidden;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* cartão do egg */
+#egg-card {
+  width: min(1100px, 96%);
+  max-height: 92%;
+  background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.42));
+  border: 1px solid rgba(255,40,40,0.06);
+  padding: 18px;
+  border-radius: 14px;
+  display:flex;
+  gap:18px;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  box-shadow: 0 12px 50px rgba(0,0,0,0.6);
+}
+
+/* imagem/GIF */
+#egg-gif {
+  width: clamp(220px, 36%, 420px);
+  border-radius: 10px;
+  border: 2px solid rgba(255,255,255,0.05);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+/* texto animado */
+#egg-text {
+  font-size: clamp(20px, 2.4vw, 34px);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  font-weight: 800;
+  text-shadow: 0 0 18px rgba(255,40,40,0.9), 0 0 36px rgba(179,75,255,0.6);
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  align-items:center;
+}
+#egg-sub { font-size: 0.95rem; color: #ffd7d7; opacity: 0.95; }
+
+/* botão sair */
+#egg-exit {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  backdrop-filter: blur(6px);
+}
+
+/* glitch text effect */
+.glitch {
+  position: relative;
+  color: #fff;
+}
+.glitch::before, .glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  clip: rect(0, 9999px, 0, 0);
+  opacity: 0.85;
+}
+.glitch::before { left: 2px; text-shadow: -2px 0 var(--glitch-red); animation: noise-anim-1 2.5s infinite linear; }
+.glitch::after { left: -2px; text-shadow: 2px 0 var(--neon-2); animation: noise-anim-2 3s infinite linear; }
+
+@keyframes noise-anim-1 {
+  0%{ clip: rect(0,9999px,0,0); }
+  10%{ clip: rect(10px,9999px,50px,0); transform: translate(-1px,-1px); }
+  20%{ clip: rect(20px,9999px,55px,0); transform: translate(1px,2px); }
+  30%{ clip: rect(30px,9999px,90px,0); transform: translate(-1px,1px); }
+  40%{ clip: rect(40px,9999px,120px,0); transform: translate(2px,-2px); }
+  100%{ clip: rect(0,9999px,0,0);}
+}
+@keyframes noise-anim-2 {
+  0%{ clip: rect(0,9999px,0,0); }
+  15%{ clip: rect(12px,9999px,64px,0); transform: translate(2px,1px); }
+  40%{ clip: rect(40px,9999px,140px,0); transform: translate(-2px,2px); }
+  100%{ clip: rect(0,9999px,0,0);}
+}
+
+/* responsivo */
+@media (max-width:780px){
+  #egg-card { flex-direction: column; padding: 14px; gap: 12px; }
+  #egg-gif { width: 74%; }
+}
