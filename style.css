@@ -1,34 +1,93 @@
-body {
+/* RESET */
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0e0e16;
-  color: #e6e6e6;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+/* PALETA */
+:root {
+  --bg: #0b0b12;
+  --panel: #151521;
+  --panel-light: #1d1d2d;
+  --accent: #7a4bff;
+  --accent-glow: #b98aff;
+  --text: #e6e6e6;
+  --text-dim: #9a9a9a;
+}
+
+/* BASE */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* HEADER */
 header {
-  background: #1a1a2e;
-  padding: 20px;
+  background: var(--panel);
+  padding: 25px;
+  border-bottom: 2px solid var(--accent);
   text-align: center;
-  border-bottom: 2px solid #3a3a5e;
+  box-shadow: 0 0 15px rgba(122, 75, 255, 0.2);
 }
+
+header h1 {
+  font-size: 2rem;
+  text-shadow: 0 0 12px var(--accent-glow);
+}
+
 nav a {
-  color: #a8a8ff;
-  margin: 0 15px;
+  color: var(--accent-glow);
+  margin: 0 12px;
   text-decoration: none;
   font-weight: bold;
+  transition: 0.2s;
 }
-nav a:hover {
-  text-shadow: 0 0 10px #8b8bff;
+
+nav a:hover,
+nav a.active {
+  color: white;
+  text-shadow: 0 0 15px var(--accent);
 }
+
+/* HERO */
 .hero {
-  padding: 40px;
-  background: linear-gradient(#1a1a2e, #0e0e16);
+  padding: 70px 20px;
   text-align: center;
-  border-bottom: 1px solid #333;
+  background: linear-gradient(#151521, #0b0b12);
 }
+
+/* CARDS */
+.cards {
+  width: 90%;
+  max-width: 900px;
+  margin: 40px auto;
+  display: grid;
+  gap: 20px;
+}
+
+.card {
+  padding: 20px;
+  background: var(--panel-light);
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  transition: 0.25s;
+  transform: translateY(0);
+  box-shadow: 0 0 10px rgba(122, 75, 255, 0.15);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(122, 75, 255, 0.3);
+}
+
+/* FOOTER */
 footer {
-  text-align: center;
-  padding: 10px;
-  background: #1a1a2e;
   margin-top: 40px;
-  border-top: 2px solid #3a3a5e;
+  text-align: center;
+  padding: 15px;
+  background: var(--panel);
+  border-top: 2px solid var(--accent);
+  color: var(--text-dim);
 }
